@@ -40,4 +40,28 @@ class rabbitmq::repo::apt(
       origin   => 'packagecloud.io',
     }
   }
+
+  apt::source { 'erlangsolutions':
+    location    => 'https://packages.erlang-solutions.com/debian',
+    release     =>  "${lsbdistcodename}",
+    repos       => 'contrib',
+    key         => {
+      id => '434975BD900CCBE4F7EE1B1ED208507CA14F4FCA',
+      source => 'https://packages.erlang-solutions.com/debian/erlang_solutions.asc'
+    },
+    before   => [ Class['Apt::Update'] ],
+  }
+
+  apt::key { 'rabbitmq':
+    id => '0A9AF2115F4687BD29803A206B73A36E6026DFCA',
+    source  => 'https://www.rabbitmq.com/rabbitmq-release-signing-key.asc',
+    require => Apt::Source['erlangsolutions'],
+  }
+
+  apt::pin { 'erlangsolutions':
+    originator => 'Erlang Solutions Ltd.',
+    packages => '*',
+    priority => '999'
+  }
+
 }

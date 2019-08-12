@@ -12,6 +12,10 @@ class rabbitmq::install {
     notify => Class['rabbitmq::service'],
   }
 
+  package { 'erlang-base-hipe':
+    ensure  => installed,
+  }
+
   if $rabbitmq::environment_variables['MNESIA_BASE'] {
     file { $rabbitmq::environment_variables['MNESIA_BASE']:
       ensure  => 'directory',
