@@ -396,7 +396,7 @@ class rabbitmq(
       }
       'Debian': {
         contain rabbitmq::repo::apt
-        Class['rabbitmq::repo::apt'] -> Class['rabbitmq::install']
+        Class['rabbitmq::repo::apt'] -> Class['apt::update'] -> Class['rabbitmq::install']
       }
       default: {
       }
