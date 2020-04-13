@@ -134,6 +134,7 @@ class rabbitmq::params {
   $ldap_config_variables               = {}
   $wipe_db_on_cookie_change            = false
   $cluster_partition_handling          = 'ignore'
+  $channel_max                         = 2047
   $environment_variables               = { 'LC_ALL' => 'en_US.UTF-8' }
   $config_variables                    = {}
   $config_kernel_variables             = {}

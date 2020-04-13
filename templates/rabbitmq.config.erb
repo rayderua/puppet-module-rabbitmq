@@ -17,6 +17,7 @@
 <% if @config_cluster -%>
     {cluster_nodes, {[<%= @cluster_nodes.map { |n| "\'rabbit@#{n}\'" }.join(', ') %>], <%= @cluster_node_type %>}},
     {cluster_partition_handling, <%= @cluster_partition_handling %>},
+    {channel_max, <%= @channel_max %>},
 <% end -%>
     {tcp_listen_options, [
          <%- unless @config_ranch -%>

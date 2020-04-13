@@ -355,6 +355,7 @@ class rabbitmq(
   Boolean $stomp_ssl_only                                                                          = $rabbitmq::params::stomp_ssl_only,
   Boolean $wipe_db_on_cookie_change                                                                = $rabbitmq::params::wipe_db_on_cookie_change,
   String $cluster_partition_handling                                                               = $rabbitmq::params::cluster_partition_handling,
+  Integer $channel_max                                                                             = $rabbitmq::params::channel_max,
   Variant[Integer[-1],Enum['unlimited'],Pattern[/^(infinity|\d+(:(infinity|\d+))?)$/]] $file_limit = $rabbitmq::params::file_limit,
   Hash $environment_variables                                                                      = $rabbitmq::params::environment_variables,
   Hash $config_variables                                                                           = $rabbitmq::params::config_variables,

@@ -72,6 +72,7 @@ class rabbitmq::config {
   $config_additional_variables         = $rabbitmq::config_additional_variables
   $auth_backends                       = $rabbitmq::auth_backends
   $cluster_partition_handling          = $rabbitmq::cluster_partition_handling
+  $channel_max                         = $rabbitmq::channel_max
   $file_limit                          = $rabbitmq::file_limit
   $collect_statistics_interval         = $rabbitmq::collect_statistics_interval
   $ipv6                                = $rabbitmq::ipv6
